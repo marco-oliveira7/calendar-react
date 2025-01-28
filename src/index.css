@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color: white;
+}
+
+.days {
+  padding: 1rem 1.25rem;
+  width: calc(100% / 7);
+  text-align: right;
+  font-size: larger;
+  cursor: pointer;
+  z-index: 10;
+  transition: all ease-in-out 0.2s;
+}
+
+.daysOfWeek {
+  width: calc(100% / 7);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.days:hover {
+  transform: scale(1.1);
+}
+
+.daysOfWeek:hover {
+  transform: scale(1.1);
+}
+
+.today {
+  font-weight: 500;
+  position: relative;
+}
+
+.today::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 85%;
+  transform: translate(-85%, -50%);
+  padding: 1.5rem;
+  z-index: -10;
+  box-shadow: 0px 0px 5px;
+  border-radius: 50%;
+}
+
+.horas::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media (width < 1200px) {
+  .today::after {
+    content: "";
+    position: absolute;
+    left: 60%;
+    transform: translate(-60%, -50%);
+  }
+}
+
+@media (width < 1024px) {
+  .app {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .tasks {
+    width: 100vh;
+  }
+  .container,
+  .arrows {
+    width: 100vh;
+  }
+}
+
+@media (width < 825px) {
+  .today {
+    color: var(--color);
+  }
+  .today::after {
+    border: none;
+    box-shadow: none;
+  }
+
+  .daysOfWeek {
+    text-align: right;
+  }
+
+  .app {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .tasks {
+    width: 70vh;
+  }
+  .container,
+  .arrows {
+    width: 80vh;
+  }
+}
+
+@media (width < 650px) {
+  .arrows {
+    width: 100%;
+    top: 10rem;
+    justify-content: space-between;
+  }
+  .tasks {
+    width: 50vw;
+  }
+  .calendar {
+    width: 80vw;
+  }
+  .weekDays{
+    margin: 0 1rem;
+  }
+}
+
+@media screen and (width < 600px) {
+  body, html{
+    height: 100vh;
+    width: 100vw;
+  }
+  .container{
+    width: 100vw;
+  }
+  .days{
+    font-size: 1.25rem;
+    line-height: 1.75rem
+  }
+  .daysOfWeek{
+    font-size: 1.25rem;
+    line-height: 1.75rem
+  }
+  .weekDays{
+    margin: 0;
+  }
+}
+
+@media (width < 350px) {
+  .calendar {
+    padding: 1.5rem 0;
+    width: 100vw;
+  }
+  .tasks{
+    width: 100vw;
+  }
+}
