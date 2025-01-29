@@ -49,7 +49,6 @@ export default function Dates(props) {
               <input
                 type="number"
                 max={23}
-                maxLength={2}
                 min={0}
                 className="w-1/5 mr-16 font-semibold bg-base-100 text-center text-5xl rounded-lg hours"
                 value={dateHours}
@@ -59,7 +58,6 @@ export default function Dates(props) {
               <input
                 type="number"
                 max={59}
-                maxLength={2}
                 min={0}
                 className="w-1/5 font-semibold bg-base-100 text-center text-5xl rounded-lg hours"
                 value={dateMinutes}

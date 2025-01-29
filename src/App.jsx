@@ -59,13 +59,13 @@ export default function Home() {
     setIsEditing(false);
   }
 
-  function deleteTask(index) {
+  function deleteTask(index) { 
     setSelectedDay(null);
     const newDays = taskDays.filter((_, i) => i !== index);
     const newMonths = taskMonths.filter((_, i) => i !== index);
     const newNames = names.filter((_, i) => i !== index);
     const newHours = hours.filter((_, i) => i !== index);
-    const newMinutes = hours.filter((_, i) => i !== index);
+    const newMinutes = minutes.filter((_, i) => i !== index);
     setNames(newNames);
     setHours(newHours);
     setMinutes(newMinutes);
