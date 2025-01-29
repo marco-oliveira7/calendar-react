@@ -2,8 +2,7 @@ import { useState } from "react";
 import Calendar from "./components/calendar/calendar.jsx";
 import Dates from "./components/dates/dates.jsx";
 import Tasks from "./components/tasks/tasks.jsx";
-import { IconBrightnessDownFilled} from "@tabler/icons-react";
-
+import { IconBrightnessDownFilled } from "@tabler/icons-react";
 
 export default function Home() {
   const [isEditing, setIsEditing] = useState(false);
@@ -31,20 +30,23 @@ export default function Home() {
 
   function saveDate(index, name, hour, minute, day, month) {
     setSelectedDay(null);
-    console.log(indexs);
-    if (isEditing) {
-      names[actualIndex] = name;
-      hours[actualIndex] = hour;
-      minutes[actualIndex] = minute;
+    if (hour > 23 || hour < 0 || minute > 60 || minute < 0) {
+      alert("O horário nao é válido");
     } else {
-      setIndex((i) => i + 1);
-      setIndexs([...indexs, index]);
-      setIsEditing(false);
-      setNames([...names, name]);
-      setHours([...hours, hour]);
-      setMinutes([...minutes, minute]);
-      setTaskDay([...taskDays, day]);
-      setTaskMonths([...taskMonths, month]);
+      if (isEditing) {
+        names[actualIndex] = name;
+        hours[actualIndex] = hour;
+        minutes[actualIndex] = minute;
+      } else {
+        setIndex((i) => i + 1);
+        setIndexs([...indexs, index]);
+        setIsEditing(false);
+        setNames([...names, name]);
+        setHours([...hours, hour]);
+        setMinutes([...minutes, minute]);
+        setTaskDay([...taskDays, day]);
+        setTaskMonths([...taskMonths, month]);
+      }
     }
     setIsEditing(false);
   }
@@ -83,19 +85,22 @@ export default function Home() {
   }
 
   function switchTheme() {
-    const body = document.body.getAttribute("data-theme")
-    if(body === "cupcake"){
-      document.body.setAttribute("data-theme", "coffee")
-    }else if(body === "coffee"){
-      document.body.setAttribute("data-theme", "dark")
-    }else if(body === "dark"){
-      document.body.setAttribute("data-theme", "cupcake")
+    const body = document.body.getAttribute("data-theme");
+    if (body === "cupcake") {
+      document.body.setAttribute("data-theme", "coffee");
+      document.body.classList.replace("cupcake", "coffee");
+    } else if (body === "coffee") {
+      document.body.setAttribute("data-theme", "dark");
+      document.body.classList.replace("coffee", "dark");
+    } else if (body === "dark") {
+      document.body.setAttribute("data-theme", "cupcake");
+      document.body.classList.replace("dark", "cupcake");
     }
   }
 
   return (
     <div className="w-screen flex flex-row-reverse justify-between app">
-      <ul className="flex flex-col w-1/4 mt-10 tasks">
+      <ul className="flex flex-col w-1/4 mt-10 tasks pb-10">
         <h1 className="font-bold text-2xl text-center">Tasks To Do</h1>
         {names.map((name, index) => (
           <Tasks
@@ -126,7 +131,10 @@ export default function Home() {
       ) : (
         <Calendar addDate={addDate} />
       )}
-        <IconBrightnessDownFilled onClick={switchTheme} className="self-end h-10 w-10"/>
+      <IconBrightnessDownFilled
+        onClick={switchTheme}
+        className="self-end h-10 w-10"
+      />
     </div>
   );
 }

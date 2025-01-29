@@ -30,44 +30,49 @@ export default function Dates(props) {
   return (
     <div className="h-screen w-3/4 flex flex-col items-center justify-center container">
       <h1 className="text-2xl font-semibold mb-8">Create a Task</h1>
-      <div className="w-3/5 h-1/2 bg-base-300 rounded-2xl box-content p-10 flex flex-col justify-between">
-          <div className="w-full h-full flex justify-right">
-            <form action="" className="w-full h-full flex flex-col justify-evenly items-center">
+      <div className="dates w-3/5 h-1/2 bg-base-300 rounded-2xl box-content p-10 flex flex-col justify-between">
+        <div className="w-full h-full flex justify-right dates-Content">
+          <form
+            action=""
+            className="w-full h-full flex flex-col justify-evenly items-center"
+          >
+            <input
+              type="text"
+              id="nameId"
+              className="w-1/2 p-2 font-semibold bg-base-100 rounded-lg inputName"
+              maxLength={32}
+              placeholder="Name of the task"
+              value={dateName}
+              onChange={handleDateName}
+            />
+            <div className="w-full flex justify-center">
               <input
-                type="text"
-                id="nameId"
-                className="w-1/2 p-2 font-semibold bg-base-100"
-                maxLength={28}
-                placeholder="Name of the task"
-                value={dateName}
-                onChange={handleDateName}
-              />
-                <div className="w-full flex justify-center">
-                  <input
-                    type="number"
-                    max={23}
-                    min={0}
-                    className="w-1/5 mr-16 font-semibold bg-base-100 text-center text-5xl horas"
-                    value={dateHours}
-                    onChange={handleDateHours}
-                  ></input>
-                  <span className="text-4xl absolute">:</span>
-                  <input
-                    type="number"
-                    max={59}
-                    min={0}
-                    className="w-1/5 font-semibold bg-base-100 text-center text-5xl horas"
-                    value={dateMinutes}
-                    onChange={handleDateMinutes}
-                  ></input>
-                </div>
-            </form>
-            <div className="flex flex-col justify-start items-center w-max h-max">
-              <h1 className="text-xl font-sans">{props.year}</h1>
-              <h1 className="text-3xl font-sans">{props.month}</h1>
-              <h1 className="text-8xl font-sans">{props.day}</h1>
+                type="number"
+                max={23}
+                maxLength={2}
+                min={0}
+                className="w-1/5 mr-16 font-semibold bg-base-100 text-center text-5xl rounded-lg hours"
+                value={dateHours}
+                onChange={handleDateHours}
+              ></input>
+              <span className="text-4xl absolute">:</span>
+              <input
+                type="number"
+                max={59}
+                maxLength={2}
+                min={0}
+                className="w-1/5 font-semibold bg-base-100 text-center text-5xl rounded-lg hours"
+                value={dateMinutes}
+                onChange={handleDateMinutes}
+              ></input>
             </div>
+          </form>
+          <div className="flex flex-col justify-start items-center w-max h-max">
+            <h1 className="text-xl font-sans">{props.year}</h1>
+            <h1 className="text-3xl font-sans">{props.month}</h1>
+            <h1 className="text-8xl font-sans">{props.day}</h1>
           </div>
+        </div>
 
         <div className="w-full flex justify-around">
           <button
@@ -79,7 +84,7 @@ export default function Dates(props) {
                 dateHours,
                 dateMinutes,
                 props.day,
-                props.month,
+                props.month
               )
             }
           >
