@@ -82,6 +82,17 @@ export default function Home() {
     setSelectedDay(day);
   }
 
+  function switchTheme() {
+    const body = document.body.getAttribute("data-theme")
+    if(body === "cupcake"){
+      document.body.setAttribute("data-theme", "coffee")
+    }else if(body === "coffee"){
+      document.body.setAttribute("data-theme", "dark")
+    }else if(body === "dark"){
+      document.body.setAttribute("data-theme", "cupcake")
+    }
+  }
+
   return (
     <div className="w-screen flex flex-row-reverse justify-between app">
       <ul className="flex flex-col w-1/4 mt-10 tasks">
@@ -115,7 +126,7 @@ export default function Home() {
       ) : (
         <Calendar addDate={addDate} />
       )}
-        <IconBrightnessDownFilled  className="self-end h-10 w-10"/>
+        <IconBrightnessDownFilled onClick={switchTheme} className="self-end h-10 w-10"/>
     </div>
   );
 }

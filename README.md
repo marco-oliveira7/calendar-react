@@ -1,8 +1,15 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🗓️ Calendar and 📃To-Do List
 
-Currently, two official plugins are available:
+- [Link of the WebSite](https://calendar-react-gilt.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About the project 
+
+**This Calendar project is a solo project made by marco-oliveira7 the owner of this project.** <br>**The application is fully functional for your daily routine**
+
+## How to access the application
+
+```
+cd calendar-react
+npm run dev
+```
