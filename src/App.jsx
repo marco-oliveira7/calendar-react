@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Calendar from "./components/calendar/calendar.jsx";
 import Dates from "./components/dates/dates.jsx";
 import Tasks from "./components/tasks/tasks.jsx";
@@ -17,7 +17,6 @@ export default function Home() {
   const [indexs, setIndexs] = useState([0]);
   const [index, setIndex] = useState(0);
   const [actualIndex, setActualIndex] = useState();
-
   const [nameTask, setNameTask] = useState("");
   const [hourTask, setHourTask] = useState("");
   const [minuteTask, setMinuteTask] = useState("");
@@ -59,7 +58,7 @@ export default function Home() {
     setIsEditing(false);
   }
 
-  function deleteTask(index) { 
+  function deleteTask(index) {
     setSelectedDay(null);
     const newDays = taskDays.filter((_, i) => i !== index);
     const newMonths = taskMonths.filter((_, i) => i !== index);
